@@ -18,8 +18,11 @@ function generate_css_styles_from_theme_json() {
 	foreach( $colors as $color ) {
 		$slug = $color['slug'];
 		$color = $color['color'];
-        // This class name follows the convention of the block's name and the color slug, in this example for text color "color".
-        // However, if you're using withColors and PanelColorSettings to generate your own color controls and attributes, this method is invaluable for generating all the css you'll need to support that, easily. You can make your classnames whatever you'd like; however, you should maintain the conventino, as it's the easiest way to know what the color is for. So if you're using a color attribute named "gridDividerColor", then your classname should be "has-grid-divider-color".
+		// This class name follows the convention of the block's name and the color slug. For example, "color" is used for text color.
+		// If you're using withColors and PanelColorSettings to generate your own color controls and attributes, this method is invaluable
+		// for generating all the CSS you'll need to support that easily.
+		// You can make your class names whatever you'd like, but you should maintain the convention, as it's the easiest way to know what the color is for.
+		// For instance, if you're using a color attribute named "gridDividerColor", then your class name should be "has-{gridDividerColor}-grid-divider-color".
 		?>
 		.wp-block-my-block-name.has-<?php echo $slug; ?>-color .my-target {
 			color: <?php echo $color; ?> !important;
